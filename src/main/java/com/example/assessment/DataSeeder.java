@@ -1,4 +1,4 @@
-﻿package com.example.assessment;
+package com.example.assessment;
 
 import com.example.assessment.model.*;
 import com.example.assessment.repository.*;

@@ -1,4 +1,4 @@
-﻿package com.example.assessment.repository;
+package com.example.assessment.repository;
 
 import com.example.assessment.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;

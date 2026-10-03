@@ -1,4 +1,4 @@
-﻿package com.example.assessment.model;
+package com.example.assessment.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
