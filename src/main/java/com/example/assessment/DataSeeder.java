@@ -80,6 +80,64 @@ public class DataSeeder {
                 assignment.setTotal(30);
                 Assignment savedAssignment = assignmentRepository.save(assignment);
 
+                // Add Assessment 2
+                Assessment assessment2 = new Assessment();
+                assessment2.setTitle("Database Management Systems");
+                assessment2.setCategory("Database");
+                assessment2.setQuestions(2);
+                assessment2.setTimeLimit(45);
+                assessment2.setStatus("Published");
+
+                QuestionData a2q1 = new QuestionData();
+                a2q1.setId("q3-" + UUID.randomUUID().toString());
+                a2q1.setText("What does SQL stand for?");
+                a2q1.setOptions(Arrays.asList("Structured Query Language", "Strong Question Language", "Structured Question Language", "None"));
+                a2q1.setCorrect("Structured Query Language");
+
+                QuestionData a2q2 = new QuestionData();
+                a2q2.setId("q4-" + UUID.randomUUID().toString());
+                a2q2.setText("Which of the following is a NoSQL database?");
+                a2q2.setOptions(Arrays.asList("MySQL", "PostgreSQL", "MongoDB", "Oracle"));
+                a2q2.setCorrect("MongoDB");
+
+                assessment2.setQuestionsData(Arrays.asList(a2q1, a2q2));
+                Assessment savedAssessment2 = assessmentRepository.save(assessment2);
+
+                Assignment assignment2 = new Assignment();
+                assignment2.setId("assign-" + UUID.randomUUID().toString());
+                assignment2.setAssessmentId(savedAssessment2.getId());
+                assignment2.setGroup("Class 2026");
+                assignment2.setDueDate("2026-11-15");
+                assignment2.setCompleted(0);
+                assignment2.setTotal(25);
+                assignmentRepository.save(assignment2);
+
+                // Add Assessment 3
+                Assessment assessment3 = new Assessment();
+                assessment3.setTitle("Data Structures and Algorithms");
+                assessment3.setCategory("Computer Science");
+                assessment3.setQuestions(1);
+                assessment3.setTimeLimit(60);
+                assessment3.setStatus("Published");
+
+                QuestionData a3q1 = new QuestionData();
+                a3q1.setId("q5-" + UUID.randomUUID().toString());
+                a3q1.setText("What is the time complexity of binary search?");
+                a3q1.setOptions(Arrays.asList("O(1)", "O(n)", "O(log n)", "O(n^2)"));
+                a3q1.setCorrect("O(log n)");
+
+                assessment3.setQuestionsData(Arrays.asList(a3q1));
+                Assessment savedAssessment3 = assessmentRepository.save(assessment3);
+
+                Assignment assignment3 = new Assignment();
+                assignment3.setId("assign-" + UUID.randomUUID().toString());
+                assignment3.setAssessmentId(savedAssessment3.getId());
+                assignment3.setGroup("Class 2027");
+                assignment3.setDueDate("2026-10-31");
+                assignment3.setCompleted(5);
+                assignment3.setTotal(40);
+                assignmentRepository.save(assignment3);
+
                 // Create Sample Submission
                 Submission submission = new Submission();
                 submission.setId("sub-" + UUID.randomUUID().toString());
