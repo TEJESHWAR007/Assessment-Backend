@@ -24,4 +24,16 @@ public class AssignmentController {
     public Assignment create(@RequestBody Assignment assignment) {
         return assignmentRepository.save(assignment);
     }
+    
+    @PatchMapping("/{id}")
+    public Assignment updateProgress(@PathVariable String id, @RequestBody java.util.Map<String, Object> updates) {
+        Assignment assignment = assignmentRepository.findById(id).orElseThrow();
+        if (updates.containsKey("completed")) {
+            assignment.setCompleted(((Number) updates.get("completed")).intValue());
+        }
+        if (updates.containsKey("total")) {
+            assignment.setTotal(((Number) updates.get("total")).intValue());
+        }
+        return assignmentRepository.save(assignment);
+    }
 }

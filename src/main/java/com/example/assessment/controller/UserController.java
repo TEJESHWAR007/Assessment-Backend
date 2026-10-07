@@ -73,6 +73,9 @@ public class UserController {
             }
             user.setRole(updates.get("role"));
         }
+        if (updates.containsKey("status")) {
+            user.setStatus(updates.get("status"));
+        }
         User saved = userRepository.save(user);
         saved.setPassword("***");
         return saved;
